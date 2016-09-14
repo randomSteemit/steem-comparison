@@ -1,0 +1,46 @@
+
+<div class="container" flex="auto" layout="column" layout-align="center stretch">
+    <div ng-class="model.spacer" ng-hide="model.hasData"></div>
+    <div class="userInput">
+        <div ng-class="model.usernameContainer">
+            <h4>Steemit Username: </h4>
+            <input type="text" ng-model="model.userName" placeholder="{{model.userName}}" />
+        </div>
+        <div ng-class="model.cryptoContainer">
+            <h4>Number of Currencies: </h4>
+            <input type="text" ng-model="model.numOfCurrencies" placeholder="{{model.numOfCurrencies}}" />
+        </div>
+        <a ng-click="model.getSteemPerMvest(model.userName, model.numOfCurrencies)" ng-class="model.dataButton" id="getDataButton" class="btn btn-info"> Get Comparison Data</a>
+
+    </div>
+    <div ng-class="model.tableContainer">
+        <div class="dataContainer" ng-if="model.steem_price">
+            <div class="userInfo">
+                <h4>Current Price of Steem: ${{model.steem_price}}</h4>
+                <h4>Current Price of SBD: ${{model.sbd_price}}</h4>
+                <br>
+                <h4 class="padBottom">{{model.name}}'s current worth: </h4>
+                <h4>{{model.total_sp}} Steem Power (${{model.sp_worth.toFixed(2)}})</h4>
+                <h4>+ {{model.total_steem}} STEEM (${{model.steem_worth.toFixed(2)}})</h4>
+                <h4>+ ${{model.total_sbd}} SBD (${{model.sbd_worth.toFixed(2)}})</h4>
+                <hr style="padding: 0px;">
+                <h4>Total Worth: ${{model.total_worth.toFixed(2)}}</h4>
+            </div>
+            <div class="tableDiv">
+                <table>
+                    <tr>
+                        <th>Cryptocurrency</th>
+                        <th>Price USD</th>
+                        <th>Comparison Amount</th>
+                    </tr>
+
+                    <tr ng-repeat = "crypto in model.cryptoArray">
+                        <td>({{crypto.rank}}) {{ crypto.name }}</td>
+                        <td>${{ crypto.price_usd }}</td>
+                        <td>{{crypto.compared_worth.toFixed(5)}} {{crypto.symbol}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

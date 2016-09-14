@@ -1,0 +1,19 @@
+{
+  "name": "steem-compare",
+  "version": "1.0.0",
+  "description": "Compare Steem to Other Cyrpto's",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-material": "^1.1.1",
+    "bootstrap": "^3.3.7",
+    "steem": "^0.3.21"
+  }
+}

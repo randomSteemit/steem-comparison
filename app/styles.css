@@ -1,0 +1,146 @@
+html, body {
+    text-align: center;
+    background-color: #fff;
+}
+
+.container {
+    text-align: center;
+    height: 100%;
+}
+
+.header h3 {
+    margin: 0;
+    padding: 5px;
+}
+
+input {
+    text-align: center;
+}
+
+input, input:hover, input:focus{
+    outline: none !important;
+    border-color: transparent;
+    border-bottom-color: black;
+}
+
+
+.dataContainer{
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+
+.dataButton {
+    margin-top: 15px;
+    background-color: #4BA2F2;
+}
+
+table
+{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+table, th , td {
+    border: 1px solid #fff;
+    padding: 5px;
+}
+
+table tr:nth-child(odd) {
+    background-color: #4BA2F2;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #1A5099;
+    color: #fff;
+}
+
+.spacerShow {
+    top: 0;
+    height: 33.33%;
+}
+
+.spacerHide {
+    display: none;
+}
+
+.userInput {
+    margin-top: -80px;
+    height: 20%;
+    min-height: 180px;
+}
+
+.usernameContainerNoSpacer {
+    margin: 0 auto;
+    width: 190px;
+    display: inline-block;
+}
+
+.cryptoContainerNoSpacer{
+    margin: 0 auto;
+    width: 190px;
+    display: inline-block;
+}
+
+.dataButtonNoSpacer {
+    display: block;
+    width: 170px;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #4BA2F2;
+}
+
+.tableContainer {
+    height: 33.33%;
+}
+.tableContainerNoSpacer {
+    margin-top: -20px;
+    height: 66.66%;
+}
+
+.userInfo {
+    text-align: left;
+    display: inline-table;
+}
+
+.tableDiv{
+    display: inline-table;
+}
+
+.padBottom{
+    padding-bottom: 10px;
+}
+
+hr{
+    padding: 0;
+    margin: 0;
+    border-top-color:  #000;
+}
+
+@media (max-width: 720px){
+    .tableContainerNoSpacer{
+        margin-top: -40px;
+    }
+    .userInfo {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    br {
+        display: none;
+    }
+}
+
+@media (max-width: 430px){
+    .dataContainer{
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 355px){
+    html, body{
+        font-size: 0.8em;
+    }
+}
