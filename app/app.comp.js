@@ -1,11 +1,11 @@
 (function () {
     'use strict';
     var module = angular.module('app', ['ngMaterial'])
-    .component('appComponent', {
-        templateUrl: 'app/app.html',
-        controller: ['$http', controller],
-        controllerAs: 'model'
-    })
+        .component('appComponent', {
+            templateUrl: 'app/app.html',
+            controller: ['$http', controller],
+            controllerAs: 'model'
+        })
 
     function controller($http) {
         var model = this;
@@ -24,6 +24,16 @@
             model.tableContainer = "tableContainerNoSpacer";
             model.usernameContainer = "usernameContainerNoSpacer";
             model.cryptoContainer = "cryptoContainerNoSpacer";
+
+            // Move table below user info for easier readablility 
+            if (numOfCurrencies > 15) {
+                $(".tableDiv").css("display", "table");
+                $(".tableDiv").css("margin-top", "15px");
+
+            } else {
+                $(".tableDiv").css("display", "inline-table");
+                $(".tableDiv").css("margin-top", "0px");
+            }
 
             steem.api.getDynamicGlobalProperties(function (err, result) {
 
@@ -56,7 +66,7 @@
             return price;
         }
 
-        function handleSteemPrice(steem_per_mvest, username, numOfCurrencies, steem_usd){
+        function handleSteemPrice(steem_per_mvest, username, numOfCurrencies, steem_usd) {
             var url = "https://api.coinmarketcap.com/v1/ticker/steem-dollars/";
             getSBDPrice(handleSBDPrice, url, steem_per_mvest, username, numOfCurrencies, steem_usd);
         }
@@ -72,7 +82,7 @@
             return price;
         }
 
-        function handleSBDPrice(steem_per_mvest, username, numOfCurrencies, steem_usd, sbd_usd){
+        function handleSBDPrice(steem_per_mvest, username, numOfCurrencies, steem_usd, sbd_usd) {
             getAccount(steem_per_mvest, username, numOfCurrencies, steem_usd, sbd_usd);
         }
 
@@ -102,12 +112,12 @@
             model.name = account[0].name;
             console.log(account);
             // Pass Current Steem Power Into CMC Comparison Function
-            getCoinMarketCap(url, SP, steem,  SBD, steem_usd, sbd_usd);
+            getCoinMarketCap(url, SP, steem, SBD, steem_usd, sbd_usd);
 
         };
 
         // CMC Comparison Function
-        function getCoinMarketCap(endpoint, SP, steem,  SBD, steem_usd, sbd_usd) {
+        function getCoinMarketCap(endpoint, SP, steem, SBD, steem_usd, sbd_usd) {
             // Request top 10 Cryptocurrencies
             // Simple GET request example:
             $http({
@@ -116,7 +126,7 @@
             }).then(function successCallback(response) {
                 // this callback will be called asynchronously
                 // when the response is available
-                handleCryptoObject(response.data, SP, steem,  SBD, steem_usd, sbd_usd);
+                handleCryptoObject(response.data, SP, steem, SBD, steem_usd, sbd_usd);
             }, function errorCallback(response) {
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
@@ -161,5 +171,3 @@
         }
     }
 }());
-
-

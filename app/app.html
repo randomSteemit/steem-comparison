@@ -1,4 +1,3 @@
-
 <div class="container" flex="auto" layout="column" layout-align="center stretch">
     <div ng-class="model.spacer" ng-hide="model.hasData"></div>
     <div class="userInput">
@@ -28,17 +27,20 @@
             </div>
             <div class="tableDiv">
                 <table>
-                    <tr>
-                        <th>Cryptocurrency</th>
-                        <th>Price USD</th>
-                        <th>Comparison Amount</th>
-                    </tr>
-
-                    <tr ng-repeat = "crypto in model.cryptoArray">
-                        <td>({{crypto.rank}}) {{ crypto.name }}</td>
-                        <td>${{ crypto.price_usd }}</td>
-                        <td>{{crypto.compared_worth.toFixed(5)}} {{crypto.symbol}}</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Cryptocurrency</th>
+                            <th>Price USD</th>
+                            <th>Comparison Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="crypto in model.cryptoArray">
+                            <td>({{crypto.rank}}) {{ crypto.name }}</td>
+                            <td>${{ crypto.price_usd }}</td>
+                            <td>{{crypto.compared_worth.toFixed(5)}} {{crypto.symbol}}</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
